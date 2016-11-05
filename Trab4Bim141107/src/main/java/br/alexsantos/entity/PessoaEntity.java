@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
 /**
  * Essa Entity é para configuração da tabela pessoa
  * Configurada com JPA
@@ -19,6 +22,9 @@ import javax.persistence.Table;
 
 @Entity //Anotação para endentificar que essa classe é uma tabela, de persistência com JPA
 @Table(name="tb_pessoa") // Essa anotação indetifica o nome da tabela no banco de dados
+@NamedQueries({@NamedQuery(name = "PessoaEntity.findAll",
+			               query= "SELECT p FROM PessoaEntity p") //query para realizar consulta, e trabalhar com persistência do JPA
+})
 public class PessoaEntity {
 
 	 @Id // Anotação de indetificação de chave primaria da tabela
