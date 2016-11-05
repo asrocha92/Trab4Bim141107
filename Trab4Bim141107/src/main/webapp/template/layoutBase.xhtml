@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          
+<!-- @author Alex Santos Rocha 
+	 @Date: 02/11/2016 às 18:59
+ 	 Esse é o layout onde chamamos nosso cabeçalho e corpo da página
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+<body>
+ 
+<!-- Onde definimos um arquivo css para cor do cabeçalho da página -->
+<h:head>
+	<h:outputStylesheet library="css" name="default.css"/>
+</h:head>
+ 
+ 
+<div id="header">
+	<!-- Incluido cabeçalho, chamando o arquivo header.xhtml -->
+    <ui:include src="header.xhtml"/>
+</div>
+ 
+<div id="content" style="margin-top:5%;" >
+  <ui:insert name="content">    	
+  </ui:insert>
+</div>
+ 
+ <!-- Carrega o corpo da página -->
+<div id="footer">      	
+	<ui:include src="footer.xhtml"/>  
+</div>
+ 
+</body>
+ 
+</html>

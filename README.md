@@ -6,7 +6,10 @@
 
 # 1 - Primeira parte do projeto criar o script para o banco de dados para que possa armazenar informações do sistema.
 
-# 2 - Criando um projeto JSF e configurando conforme o tutorial.
+# 2 - Segunda parte Criando um projeto JSF e configurando conforme o tutorial.
+
+# 3 - Terceira parte do Projeto, foi criados os template com Facelets.
+
 
 
 
