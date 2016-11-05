@@ -14,5 +14,8 @@
 
 # 5 - Quinta parte do projeto, criar um cadastro de pessoa.
 
+# 6 - Sexta parte do projeto, desenvolver um cadastro de pessoa via upLoand de um XML.
+	* O arquivo XML de pessoa estará no diretório do projeto -> Trab4Bim141107\UP_PESSOA
+
 
 

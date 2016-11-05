@@ -20,11 +20,11 @@
 
 
 	<ui:define name="content">
-		
+
 		<!-- Adiona o views do layout do cadastro de pessoa -->
 		<p:tabView style="width:600px;height:370px;margin:auto;">
 			<p:tab title="Cadastro de Pessoa">
-			
+
 				<h:form id="form-cadastro">
 
 					<h:panelGrid id="panelGrid-campos-form" columns="2"
@@ -34,20 +34,18 @@
 						<p:inputText id="inputText-nome" style="width:300px"
 							maxlength="70"
 							value="#{cadastrarPessoaController.pessoaModel.nome}"
-							required="true"
-							requiredMessage="É obrigatório informar o nome!" />
-						
+							required="true" requiredMessage="É obrigatório informar o nome!" />
+
 						<!-- Campo sexo -->
 						<p:outputLabel for="selectOneRadio-sexo" value="Sexo:" />
 						<p:selectOneRadio id="selectOneRadio-sexo"
 							value="#{cadastrarPessoaController.pessoaModel.sexo}"
-							required="true"
-							requiredMessage="É necessário selecionar o sexo!">
+							required="true" requiredMessage="É necessário selecionar o sexo!">
 
 							<f:selectItem itemLabel="Masculino" itemValue="M" />
 							<f:selectItem itemLabel="Feminino" itemValue="F" />
 						</p:selectOneRadio>
-						
+
 						<!-- Campo email -->
 						<p:outputLabel value="E-mail" for="inputText-email" />
 						<p:inputText id="inputText-email" style="width:300px"
@@ -66,24 +64,51 @@
 
 						<p:spacer />
 						<!-- Botão para gravar os dados da pessoa -->
-						<p:commandButton value="Salvar" id="commandButton-salvar" icon="ui-icon-gear" 
-							 actionListener="#{cadastrarPessoaController.SalvarNovaPessoa}"
-							 update="panelGrid-campos-form" />
+						<p:commandButton value="Salvar" id="commandButton-salvar"
+							icon="ui-icon-gear"
+							actionListener="#{cadastrarPessoaController.SalvarNovaPessoa}"
+							update="panelGrid-campos-form" />
 
 
 					</h:panelGrid>
-					
+
 					<!-- 
 						As 3 linhas abaixo serve para mostrar as validações impostas nos campos
 						required="true" - valida se foi preenchido
 						requiredMessage - mostra a mensagem
 					-->
-					<p:messages showDetail="true" autoUpdate="true" closable="true"	severity="warn" />
+					<p:messages showDetail="true" autoUpdate="true" closable="true"
+						severity="warn" />
 					<p:messages autoUpdate="true" closable="true" severity="error" />
-					<p:messages showDetail="true" autoUpdate="true" closable="true"	severity="info" />
+					<p:messages showDetail="true" autoUpdate="true" closable="true"
+						severity="info" />
 
 				</h:form>
 
+			</p:tab>
+			
+			<!-- Apartir dessa linha a uma tablePane realizar upLoad do arquivo XML, se acaso existir -->
+			<p:tab title="Upload Xml Pessoa">
+		
+				<h:form id="form-upload" enctype="multipart/form-data">
+				
+					<!-- Se vc baixou o arquivo do git, poderá olhar esse arquivo na pasta do projeto Trab4Bim141107\UP_PESSOA -->
+					<p:outputLabel value="Se você baixou o arquivo do git,
+											  poderá olhar esse arquivo na pasta 
+											  onde salvou seu projeto no caminho Trab4Bim141107\UP_PESSOA" />
+				
+					<h:panelGrid id="panelGrid-upload-xml" columns="2" cellpadding="10">
+
+						<!-- Ao clicar, o usuário poderá escolher qualarquivo quer importar -->
+						<p:fileUpload value="#{cadastrarPessoaController.file}"
+							mode="simple" skinSimple="true" label="Selecionar" />
+
+						<p:commandButton value="Importar..." ajax="false"
+							actionListener="#{cadastrarPessoaController.UploadRegistros}" />
+
+					</h:panelGrid>
+
+				</h:form>
 			</p:tab>
 
 		</p:tabView>
