@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @author Alex Santos Rocha
+     @date:02/11/2016 às 17:46
+	 Declaramos o nosso contexto de conteiner da aplicação que irá trabalhar com CDI
+ -->
+<Context antiJARLocking="true" path="/tomcat-test">
+  <Resource
+    name="BeanManager"
+    auth="Container"
+    type="javax.enterprise.inject.spi.BeanManager"
+    factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+</Context>

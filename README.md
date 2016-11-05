@@ -6,5 +6,7 @@
 
 # 1 - Primeira parte do projeto criar o script para o banco de dados para que possa armazenar informações do sistema.
 
+# 2 - Criando um projeto JSF e configurando conforme o tutorial.
+
 
 
