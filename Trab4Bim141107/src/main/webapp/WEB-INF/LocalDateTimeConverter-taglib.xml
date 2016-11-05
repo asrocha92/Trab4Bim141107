@@ -1,0 +1,18 @@
+<facelet-taglib version="2.2"
+      xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+
+  <!--
+  	  - XML para coverter as horas chamando a classe que está no pacote descrito a baixo
+  	  @author Alex Santos Rocha
+  	  @Data 05/11/2016 às 20:36
+   -->
+  <namespace>LocalDateTimeConverter</namespace>
+   <tag>
+    <tag-name>LocalDateTimeConverter</tag-name>
+    <converter>
+     <converter-id>br.alexsantos.uteis.LocalDateTimeConverter</converter-id>
+    </converter>
+   </tag>
+</facelet-taglib>

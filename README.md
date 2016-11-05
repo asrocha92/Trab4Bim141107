@@ -19,3 +19,7 @@
 
 # 7 - Setima parte do projeto, Desenvolver uma consulta com PrimeFaces data table.
 
+# 8 - Oitava parte do projeto, Formatando LocalTime.
+
+
+
