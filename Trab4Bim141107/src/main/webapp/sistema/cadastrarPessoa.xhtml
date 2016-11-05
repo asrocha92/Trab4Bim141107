@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+	 - Página de cadastro de pessoa
+	 @author Alex Santos Rocha 
+	 @Date:05/11/2016 às 11:13	 
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<!-- Chama o layoutBase -->
+<ui:composition template="/template/layoutBase.xhtml">
+
+
+	<ui:define name="content">
+		
+		<!-- Adiona o views do layout do cadastro de pessoa -->
+		<p:tabView style="width:600px;height:370px;margin:auto;">
+			<p:tab title="Cadastro de Pessoa">
+			
+				<h:form id="form-cadastro">
+
+					<h:panelGrid id="panelGrid-campos-form" columns="2"
+						cellpadding="10">
+						<!-- Campo nome -->
+						<p:outputLabel value="Nome" for="inputText-nome" />
+						<p:inputText id="inputText-nome" style="width:300px"
+							maxlength="70"
+							value="#{cadastrarPessoaController.pessoaModel.nome}"
+							required="true"
+							requiredMessage="É obrigatório informar o nome!" />
+						
+						<!-- Campo sexo -->
+						<p:outputLabel for="selectOneRadio-sexo" value="Sexo:" />
+						<p:selectOneRadio id="selectOneRadio-sexo"
+							value="#{cadastrarPessoaController.pessoaModel.sexo}"
+							required="true"
+							requiredMessage="É necessário selecionar o sexo!">
+
+							<f:selectItem itemLabel="Masculino" itemValue="M" />
+							<f:selectItem itemLabel="Feminino" itemValue="F" />
+						</p:selectOneRadio>
+						
+						<!-- Campo email -->
+						<p:outputLabel value="E-mail" for="inputText-email" />
+						<p:inputText id="inputText-email" style="width:300px"
+							maxlength="80"
+							value="#{cadastrarPessoaController.pessoaModel.email}"
+							required="true"
+							requiredMessage="É obrigatório informar o emmail!" />
+
+						<!-- Campo endereço -->
+						<p:outputLabel value="Endereço" for="inputText-endereco" />
+						<p:inputText id="inputText-endereco" style="width:400px"
+							maxlength="200"
+							value="#{cadastrarPessoaController.pessoaModel.endereco}"
+							required="true"
+							requiredMessage="É obrigatório informar o endereço!" />
+
+						<p:spacer />
+						<!-- Botão para gravar os dados da pessoa -->
+						<p:commandButton value="Salvar" id="commandButton-salvar" icon="ui-icon-gear" 
+							 actionListener="#{cadastrarPessoaController.SalvarNovaPessoa}"
+							 update="panelGrid-campos-form" />
+
+
+					</h:panelGrid>
+					
+					<!-- 
+						As 3 linhas abaixo serve para mostrar as validações impostas nos campos
+						required="true" - valida se foi preenchido
+						requiredMessage - mostra a mensagem
+					-->
+					<p:messages showDetail="true" autoUpdate="true" closable="true"	severity="warn" />
+					<p:messages autoUpdate="true" closable="true" severity="error" />
+					<p:messages showDetail="true" autoUpdate="true" closable="true"	severity="info" />
+
+				</h:form>
+
+			</p:tab>
+
+		</p:tabView>
+
+
+
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
