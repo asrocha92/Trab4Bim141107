@@ -1,7 +1,9 @@
 package br.alexsantos.repository;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -13,7 +15,6 @@ import br.alexsantos.entity.UsuarioEntity;
 import br.alexsantos.model.PessoaModel;
 import br.alexsantos.model.UsuarioModel;
 import br.alexsantos.uteis.Uteis;
-
 
 /**
  * Classe reposavél por persistir o objeto da classe PessoaEntity.
@@ -146,6 +147,37 @@ public class PessoaRepository {
 		PessoaEntity pessoaEntity = this.GetPessoa(codigo); //recupera todos os dados da pessoa que possui aquele código
 
 		entityManager.remove(pessoaEntity); // o método remove, método de persistência que o JPA, usa para remover registro do banco de dados
+	}
+
+	/***
+	 * Retorna os tipos de pessoa agrupados da origem do cadastro
+	 * @return retorna uma HashTable de pessoa
+	 */
+	public Hashtable<String, Integer> GetOrigemPessoa(){
+
+		Hashtable<String, Integer> hashtableRegistros = new Hashtable<String,Integer>(); //Inicia uma tabela hash para armazenar informações de pessoas cadastradas no sistema
+
+		entityManager =  Uteis.JpaEntityManager(); // Inicia um conexão e persistência JPA
+
+		Query query = entityManager.createNamedQuery("PessoaEntity.GroupByOrigemCadastro"); // Usa a instância do JPA, cria uma grupo onde são armazenada informação das pessoas cadsastradas
+
+		Collection<Object[]> collectionRegistros  = (Collection<Object[]>)query.getResultList(); //realiza um cast da consulta da query, passando para Collection.
+
+		// usa o foreach para percorre a tabela de pessoa
+		for (Object[] objects : collectionRegistros) {
+
+			String tipoPessoa 		= (String)objects[0]; //atribui o objeto da primeira posição do hash, para a variavél tipoPessoa
+			int	   totalDeRegistros = ((Number)objects[1]).intValue(); // atribui osvalor da segunda posição do hash
+
+			//verifica se a origem do cadastro e por xml, se não port INPUT
+			if(tipoPessoa.equals("X")){
+				tipoPessoa = "XML"; // atribui o valor XML
+			}else{
+				tipoPessoa = "INPUT"; // atribui o valor INPUT
+			}
+			hashtableRegistros.put(tipoPessoa, totalDeRegistros); // adiciona o objeto tipoPessoa para chave, e totalDeRegistros para o valor daquela posição
+		}
+		return hashtableRegistros; // retorna a lista Hash com os valores armazenados
 	}
 
 }

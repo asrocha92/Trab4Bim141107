@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+    <!-- 
+	 - Página que irá apresentar o gráfico da forma como foram inserido dados da pessoa
+	 @author Alex Santos Rocha 
+	 @Date:06/11/2016 às 21:18	 
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/layoutBase.xhtml">
+
+	<ui:define name="content">
+		<!-- Faz a chamada do método que está no contexto do CDI, para carregar a página do gráfico -->
+		<p:chart type="pie"
+			model="#{graficoPizzaPessoaController.pieChartModel}"
+			style="height:600px" />
+
+	</ui:define>
+
+</ui:composition>
+</html>

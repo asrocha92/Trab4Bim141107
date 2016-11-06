@@ -23,7 +23,10 @@ import javax.persistence.NamedQuery;
 @Entity //Anotação para endentificar que essa classe é uma tabela, de persistência com JPA
 @Table(name="tb_pessoa") // Essa anotação indetifica o nome da tabela no banco de dados
 @NamedQueries({@NamedQuery(name = "PessoaEntity.findAll",
-			               query= "SELECT p FROM PessoaEntity p") //query para realizar consulta, e trabalhar com persistência do JPA
+			               query= "SELECT p FROM PessoaEntity p"), //query para realizar consulta, e trabalhar com persistência do JPA
+			  @NamedQuery(name="PessoaEntity.GroupByOrigemCadastro",
+			  			   query= "SELECT p.origemCadastro, count(p) as total FROM PessoaEntity p GROUP By p.origemCadastro") // segunda Query é para utlizar para consulta para o grafico, retorna a origem e conta quantos foram cadastrados com a mesma origems
+
 })
 public class PessoaEntity {
 
