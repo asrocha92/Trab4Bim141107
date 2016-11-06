@@ -68,4 +68,27 @@ public class ConsultarPessoaController implements Serializable {
 	}
 
 
+	/**
+	 * Passa o valor o objeto que foi passado por parâmetro para o objeto de classe do tipo Pessoa modelo
+	 * @param pessoaModel
+	 */
+	public void Editar(PessoaModel pessoaModel){
+
+		/*PEGA APENAS A PRIMEIRA LETRA DO SEXO PARA SETAR NO CAMPO(M OU F)*/
+		pessoaModel.setSexo(pessoaModel.getSexo().substring(0, 1)); // Retira somente a primeira letra da palavra exemplo:Masculino, pega a posição 1 que igual a (M) e atribui
+
+		this.pessoaModel = pessoaModel; //atribui o valor do parâmetro
+
+	}
+
+	/**
+	 * Realiza alteração do registro que foi alteradoa
+	 */
+	public void AlterarRegistro(){
+
+		this.pessoaRepository.AlterarRegistro(this.pessoaModel); // chama o método que contem no objeto pessoaRepository e passa o valor do objeto que irá ser alterado.
+
+		this.init(); //carrega o geristro na views do usuário
+	}
+
 }

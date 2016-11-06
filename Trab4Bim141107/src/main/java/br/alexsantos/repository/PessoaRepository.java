@@ -103,4 +103,35 @@ public class PessoaRepository {
 		return listaPessoasModel; //retorna a lista mesmo existindo ou não pessoas armazenadas.
 	}
 
+
+	/***
+	 * Método para consultar somente uma pessoa e a retornar pelo seu código.
+	 * @param codigo
+	 * @return Pessoa que esteja cadastrada no sistema
+	 */
+	private PessoaEntity GetPessoa(int codigo){
+
+		entityManager =  Uteis.JpaEntityManager(); // Inicia um conexão e persistência JPA, para realizar operão com o banco de dados
+
+		return entityManager.find(PessoaEntity.class, codigo); //retorna uma pessoa armazenada no banco de dados pelo código de pessoa passado por parâmetro
+	}
+
+	/***
+	 * Método para alterar registro de pessoa no banco de dados.
+	 * @param pessoaModel
+	 */
+	public void AlterarRegistro(PessoaModel pessoaModel){
+
+		entityManager =  Uteis.JpaEntityManager(); // Inicia um conexão e persistência JPA
+
+		PessoaEntity pessoaEntity = this.GetPessoa(pessoaModel.getCodigo()); // Busca pessoa pelo código e a atribui para a variavél do tipo pessoa
+
+		pessoaEntity.setEmail(pessoaModel.getEmail()); // seta o valor alterado para email da pessoa
+		pessoaEntity.setEndereco(pessoaModel.getEndereco()); // seta o valor alterado para endereço da pessoa
+		pessoaEntity.setNome(pessoaModel.getNome()); // seta o valor alterado para nome da pessoa
+		pessoaEntity.setSexo(pessoaModel.getSexo()); // seta o valor alterado para sexo da pessoa
+
+		entityManager.merge(pessoaEntity); // faz um merge, essa persitência é do JPA, ela funciona para salvar a alteração feita no banco de dados.
+	}
+
 }
