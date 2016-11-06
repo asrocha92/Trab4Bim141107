@@ -23,5 +23,6 @@
 
 # 9 - Nona parte do projeto, Editando registros de Pessoa que está armazenada no banco de dados. Adicionado botão para editar na tabela de consulta.
 
-# 10  - Dessíma parte do projeto, Excluindo registros de Pessoa que está cadastrada no sistema. Adicionado botão para excluir registro da tabela na views de consulta.
+# 10  - Décima parte do projeto, Excluindo registros de Pessoa que está cadastrada no sistema. Adicionado botão para excluir registro da tabela na views de consulta.
 
+# 11 - Décima primeira parte do projeto, Criando consulta com Carousel PrimeFaces.
