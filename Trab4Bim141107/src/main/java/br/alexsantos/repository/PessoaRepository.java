@@ -134,4 +134,18 @@ public class PessoaRepository {
 		entityManager.merge(pessoaEntity); // faz um merge, essa persitência é do JPA, ela funciona para salvar a alteração feita no banco de dados.
 	}
 
+
+	/***
+	 * Método para excluir registro da pessoa armazenado no banco de dados, pelo código da pessoa
+	 * @param codigo
+	 */
+	public void ExcluirRegistro(int codigo){
+
+		entityManager =  Uteis.JpaEntityManager();	// Inicia um conexão e persistência JPA
+
+		PessoaEntity pessoaEntity = this.GetPessoa(codigo); //recupera todos os dados da pessoa que possui aquele código
+
+		entityManager.remove(pessoaEntity); // o método remove, método de persistência que o JPA, usa para remover registro do banco de dados
+	}
+
 }

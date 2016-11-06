@@ -77,7 +77,11 @@
 				</p:column>
 
 				<p:column headerText="" style="width:25px;">
-
+				<!-- Adicionado botão na tabela consulta para poder excluir um usuário ao clicar -->
+					<p:commandButton icon="ui-icon-trash" title="Excluir Registro"
+						ajax="true"
+						actionListener="#{consultarPessoaController.ExcluirPessoa(pessoa)}"
+						update="@form" />
 				</p:column>
 
 			</p:dataTable>
