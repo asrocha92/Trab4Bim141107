@@ -6,6 +6,8 @@
 
 # 1 - Primeira parte do projeto criar o script para o banco de dados para que possa armazenar informações do sistema.
 
+* Script do banco está na pasta script\database.sql
+
 # 2 - Segunda parte Criando um projeto JSF e configurando conforme o tutorial.
 
 # 3 - Terceira parte do Projeto, foi criados os template com Facelets.
@@ -28,3 +30,6 @@
 # 11 - Décima primeira parte do projeto, Criando consulta com Carousel PrimeFaces.
 
 # 12 - Décima segunda parte do projeto, Criando uma consulta com gráfico PrimeFaces.
+
+# 13 - Décima terceira parte do projeto, Criado um exportador XML, para trânsferir dados armazenados no banco atrás do XML utilizando fileDownload e JDom. Essa função foi incluída no menu Exportar XML de pessoa.
+
