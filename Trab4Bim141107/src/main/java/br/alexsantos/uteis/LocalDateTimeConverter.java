@@ -54,9 +54,14 @@ public class LocalDateTimeConverter extends DateTimeConverter {
 
 	}
 
+	/**
+	 * Método recupera um valor de data e converte em string, do objeto recupedos do sistema
+	 * @param FacesContext
+	 * @param uiComponent
+	 * @param value
+	 */
 	  @Override
 	  public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-
 		  if(value == null)
 			  return super.getAsString(facesContext, uiComponent, value);
 
